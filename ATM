@@ -1,0 +1,28 @@
+if pin == (1111):
+        f = open("a.txt", "r+")
+    elif pin == (2222):
+        f = open("b.txt", "r+")
+    elif pin == (3333):
+        f = open("c.txt", "r+")
+    elif pin == (4444):
+        f = open("d.txt", "r+")
+
+
+# read current balance from file and save its value
+bal = float(f.read().strip('\n'))  # or replace float() with int()
+
+# reset file pointer to beginning of file before updating contents
+f.seek(0)
+
+if option == '1':
+    print(f.read()) # or simply, print(bal)
+elif option == '2':
+    y = str(input("\nHow much would you like you like to withdraw? "))
+    bal -= int(y)            # calculate new balance
+    f.write(str(bal)+'\n')   # write new balance to file as a string
+    print("Excellent, your transaction is complete!")
+elif option == '3':
+    z = str(input("\nHow much would you like to deposit? "))
+    bal += int(z)
+    f.write(str(bal)+'\n')
+    print("Excellent, your transaction is complete!")
